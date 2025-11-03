@@ -1,6 +1,6 @@
 # AI Summary: Implements the SVBMC algorithm and now resides within the package namespace.
 # AI Summary: Implements the SVBMC algorithm and now exposes public API symbols and package version.
-__version__ = "0.1.0"
+__version__ = "0.1.1"
 __all__ = ["SVBMC", "__version__"]
 
 import numpy as np
@@ -378,15 +378,13 @@ class SVBMC:
 
         # Standard S-VBMC, optimize w.r.t. all weights `w`
         if version == "all-weights":
-            print("Optimizing the stacked ELBO w.r.t. all weights")
-            # Prepare a broadcasted version of the individual ELBOs and log `K`[`m`] for weight initialization
+            print("Optimizing the stacked ELBO w.r.t. all weights.")
+            # Prepare a broadcasted version of the individual ELBOs for weight initialization
             broadcasted_elbos = np.concatenate([np.ones((self.K[m]))*self.individual_elbos[m] for m in range(self.M)], axis = 0)
             broadcasted_elbos = torch.tensor(broadcasted_elbos)
-            broadcasted_logK = np.concatenate([np.ones((self.K[m]))*np.log(self.K[m]) for m in range(self.M)], axis = 0)
-            broadcasted_logK = torch.tensor(broadcasted_logK)
             # Treat `w_logits` as the raw, unconstrained parameters to be optimized.
             # Initialize the weights to promote the ones coming from better runs 
-            w_logits_init = log_w + broadcasted_elbos - broadcasted_logK 
+            w_logits_init = log_w + broadcasted_elbos 
             w_logits_init = w_logits_init - torch.max(w_logits_init)
             w_logits = w_logits_init.detach().clone()
             w_logits.requires_grad_(True)
@@ -397,7 +395,7 @@ class SVBMC:
 
         # Optimize w.r.t. `omega`, i.e., the weights of individual VBMC posteriors
         elif version == "posterior-only":
-            print("Optimizing the stacked ELBO w.r.t. the weights of individual VBMC posteriors")
+            print("Optimizing the stacked ELBO w.r.t. the weights of individual VBMC posteriors.")
             # We treat `omega_logits` as the raw, unconstrained parameters to be optimized:
             omega_init = np.array([self.individual_elbos[m] for m in range(self.M)])
             omega_init = torch.tensor(omega_init)
