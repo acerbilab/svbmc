@@ -89,7 +89,7 @@ Do **not** "open the box" to get S-VBMC stacked posterior's individual component
 
 ## References and citation
 
-1. Silvestrin, F., Li, C., & Acerbi, L. (2025). Stacking Variational Bayesian Monte Carlo. In *Transactions on Machine Learning Research*. ([paper on arXiv](https://arxiv.org/abs/2504.05004), [TMLR](https://openreview.net/pdf?id=M2ilYAJdPe)). 
+1. Silvestrin, F., Li, C., & Acerbi, L. (2025). Stacking Variational Bayesian Monte Carlo. In *Transactions on Machine Learning Research*. ([paper on arXiv](https://arxiv.org/abs/2504.05004), [TMLR](https://openreview.net/forum?id=M2ilYAJdPe)). 
 2. Acerbi, L. (2018). Variational Bayesian Monte Carlo. In *Advances in Neural Information Processing Systems 31*: 8222-8232. ([paper + supplement on arXiv](https://arxiv.org/abs/1810.05558), [NeurIPS Proceedings](https://papers.nips.cc/paper/8043-variational-bayesian-monte-carlo))
 3. Acerbi, L. (2020). Variational Bayesian Monte Carlo with Noisy Likelihoods. In *Advances in Neural Information Processing Systems 33*: 8211-8222 ([paper + supplement on arXiv](https://arxiv.org/abs/2006.08655), [NeurIPS Proceedings](https://papers.nips.cc/paper/2020/hash/5d40954183d62a82257835477ccad3d2-Abstract.html)).
 4. Huggins, B., Li, C., Tobaben, M., Aarnos, M., & Acerbi, L. (2023). [PyVBMC: Efficient Bayesian inference in Python](https://joss.theoj.org/papers/10.21105/joss.05428). *Journal of Open Source Software* 8(86), 5428, https://doi.org/10.21105/joss.05428.
