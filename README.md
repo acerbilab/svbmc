@@ -1,6 +1,5 @@
 # Stacking Variational Bayesian Monte Carlo (S-VBMC)
 
-> [!IMPORTANT]
 > **S-VBMC is now part of [PyVBMC](https://github.com/acerbilab/pyvbmc), and this standalone package is deprecated.** From PyVBMC 1.5, use `pyvbmc.SVBMC` instead:
 >
 > ```bash
@@ -41,9 +40,9 @@ Create a new environment in `conda` and activate it:
    conda create -n svbmc-env python=3.11
    conda activate svbmc-env
    ```
-Install the version of `svbmc` that this repository holds with `pip`:
+Install `svbmc` with `pip`:
    ```bash
-   pip install svbmc==0.1.1
+   pip install svbmc
    ```
 
 ### 2. Running S-VBMC
@@ -172,7 +171,7 @@ Please cite all four references if you use S-VBMC in your work.
 
 ## License
 
-S-VBMC is released under the terms of the [BSD 3-Clause License](LICENSE.txt).
+S-VBMC is released under the terms of the [BSD 3-Clause License](https://github.com/acerbilab/svbmc/blob/main/LICENSE.txt).
 
 ## Acknowledgments
 

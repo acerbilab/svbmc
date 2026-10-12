@@ -1,6 +1,6 @@
 # AI Summary: Implements the SVBMC algorithm and now resides within the package namespace.
 # AI Summary: Implements the SVBMC algorithm and now exposes public API symbols and package version.
-__version__ = "0.1.1"
+__version__ = "0.1.2"
 __all__ = ["SVBMC", "__version__"]
 
 import numpy as np
