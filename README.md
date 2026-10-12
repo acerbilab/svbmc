@@ -1,5 +1,7 @@
 # Stacking Variational Bayesian Monte Carlo (S-VBMC)
 
+> ## Important!
+>
 > **S-VBMC is now part of [PyVBMC](https://github.com/acerbilab/pyvbmc), and this standalone package is deprecated.** From PyVBMC 1.5, use `pyvbmc.SVBMC` instead:
 >
 > ```bash
@@ -13,8 +15,6 @@
 > The integrated version is faster and reports a more precise ELBO, with its uncertainty. Its [documentation](https://acerbilab.org/pyvbmc/api/classes/svbmc.html) explains how to use it and [how to migrate code written for this package](https://acerbilab.org/pyvbmc/api/classes/svbmc.html#differences-from-the-standalone-svbmc-package), and [PyVBMC Example 7](https://acerbilab.org/pyvbmc/_examples/pyvbmc_example_7_stacking.html) walks through a complete example.
 >
 > The `svbmc` package receives no further updates. This repository remains as the code of the S-VBMC paper [[1](#references-and-citation)], and the rest of this README describes that original implementation.
-
-> **tl;dr**: S-VBMC improves posterior inference via [VBMC](https://github.com/acerbilab/pyvbmc) by combining multiple independent runs into a **single optimized posterior**. It requires no additional model evaluations and no communication between runs: just run VBMC in parallel with different initializations, then stack the results at the end. Start [here](https://github.com/acerbilab/S-VBMC/blob/main/examples/svbmc_example_1_basic_usage.ipynb) for a quick usage demo.
 
 ## Overview
 Stacking Variational Bayesian Monte Carlo (S-VBMC)[[1](#references-and-citation)] is a fast post-processing step for [Variational Bayesian Monte Carlo (VBMC)](https://github.com/acerbilab/pyvbmc). VBMC is an approximate Bayesian inference technique that produces a variational posterior in the form of a Gaussian mixture (see the relevant papers [[2-4](#references-and-citation)] for more details). S-VBMC improves upon this by combining ("stacking") the Gaussian mixture components from several independent VBMC runs into a single, larger mixture, which we call "stacked posterior". It then re-optimizes the weights of this combined mixture to maximize the combined Evidence Lower BOund (ELBO, a lower bound on log [model evidence](https://en.wikipedia.org/wiki/Marginal_likelihood)). 
