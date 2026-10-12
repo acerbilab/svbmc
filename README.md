@@ -1,5 +1,20 @@
 # Stacking Variational Bayesian Monte Carlo (S-VBMC)
 
+> [!IMPORTANT]
+> **S-VBMC is now part of [PyVBMC](https://github.com/acerbilab/pyvbmc), and this standalone package is deprecated.** From PyVBMC 1.5, use `pyvbmc.SVBMC` instead:
+>
+> ```bash
+> pip install --upgrade "pyvbmc[torch]"
+> ```
+>
+> ```python
+> from pyvbmc import SVBMC
+> ```
+>
+> The integrated version is faster and reports a more precise ELBO, with its uncertainty. Its [documentation](https://acerbilab.org/pyvbmc/api/classes/svbmc.html) explains how to use it and [how to migrate code written for this package](https://acerbilab.org/pyvbmc/api/classes/svbmc.html#differences-from-the-standalone-svbmc-package), and [PyVBMC Example 7](https://acerbilab.org/pyvbmc/_examples/pyvbmc_example_7_stacking.html) walks through a complete example.
+>
+> The `svbmc` package receives no further updates. This repository remains as the code of the S-VBMC paper [[1](#references-and-citation)], and the rest of this README describes that original implementation.
+
 > **tl;dr**: S-VBMC improves posterior inference via [VBMC](https://github.com/acerbilab/pyvbmc) by combining multiple independent runs into a **single optimized posterior**. It requires no additional model evaluations and no communication between runs: just run VBMC in parallel with different initializations, then stack the results at the end. Start [here](https://github.com/acerbilab/S-VBMC/blob/main/examples/svbmc_example_1_basic_usage.ipynb) for a quick usage demo.
 
 ## Overview
@@ -26,9 +41,9 @@ Create a new environment in `conda` and activate it:
    conda create -n svbmc-env python=3.11
    conda activate svbmc-env
    ```
-Install `svbmc` with `pip`:
+Install the version of `svbmc` that this repository holds with `pip`:
    ```bash
-   pip install svbmc 
+   pip install svbmc==0.1.1
    ```
 
 ### 2. Running S-VBMC
